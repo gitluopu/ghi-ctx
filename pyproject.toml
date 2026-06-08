@@ -1,0 +1,17 @@
+[project]
+name = "ghi-ctx"
+version = "0.1.0"
+description = "Manage GitHub issue context for AI bot handoff"
+readme = "README.md"
+authors = [
+    { name = "luopu", email = "951634379@qq.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+ghi-ctx = "ghi_ctx.main:main"
+
+[build-system]
+requires = ["uv_build>=0.11.8,<0.12.0"]
+build-backend = "uv_build"
