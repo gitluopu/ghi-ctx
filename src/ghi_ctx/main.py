@@ -20,6 +20,7 @@ def _build_timeline(issue: dict, owner: str, repo: str) -> list[dict]:
     open_event = {
         "event": "opened",
         "user": issue.get("user"),
+        "title": issue.get("title") or "",
         "body": issue.get("body") or "",
         "created_at": issue.get("created_at", ""),
     }

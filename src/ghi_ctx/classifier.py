@@ -21,11 +21,15 @@ def _actor_of(event: dict) -> str | None:
 
 def _render_event(event: dict, label: str) -> str:
     etype = event.get("event", "commented")
+    title = event.get("title") or ""
     body = event.get("body") or ""
     header = f"### [{label}] {etype}"
+    parts = [header]
+    if title:
+        parts.append(f"**{title}**")
     if body:
-        return f"{header}\n{body}"
-    return header
+        parts.append(body)
+    return "\n\n".join(parts) if len(parts) > 1 else header
 
 
 def classify(timeline: list[dict]) -> dict | None:
